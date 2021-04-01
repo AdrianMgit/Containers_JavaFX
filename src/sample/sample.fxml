@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+   <right>
+      <VBox alignment="CENTER" prefHeight="388.0" prefWidth="200.0" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="101.0" text="Chose center">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <ComboBox fx:id="centerChoiceBox" onAction="#choseWarehouse" prefWidth="150.0" />
+            <Label text="Sort products">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font></Label>
+            <ComboBox fx:id="productsSortBox" onAction="#sortProducts" prefWidth="150.0" />
+            <Label text="Search product">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <TextField fx:id="searchProductField" onAction="#searchProduct" promptText="Product name" />
+            <Label prefWidth="90.0" text="Chosen product">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label fx:id="chosenProductLabel" prefHeight="87.0" prefWidth="166.0" />
+            <HBox>
+               <children>
+                  <TextField fx:id="quantityProductField" promptText="Quantity" />
+                  <Button fx:id="buyButton" alignment="CENTER" maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#buyProduct" prefHeight="23.0" prefWidth="100.0" text="Buy" />
+               </children>
+            </HBox>
+            <Label text="User Serialization">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets></Label>
+            <HBox alignment="TOP_CENTER">
+               <children>
+                  <Button fx:id="serialUserButton" mnemonicParsing="false" onAction="#serializationUser" prefWidth="100.0" text="Save" />
+                  <Button fx:id="deserialUserButton" mnemonicParsing="false" onAction="#deserializationUser" prefWidth="100.0" text="Read" />
+               </children>
+            </HBox>
+            <Label text="Magazine Serialization">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <HBox>
+               <children>
+                  <Button fx:id="serialContainerButton" mnemonicParsing="false" onAction="#serializationContainer" prefWidth="100.0" text="Save" />
+                  <Button fx:id="deserialContainerButton" mnemonicParsing="false" onAction="#deserializationContainer" prefWidth="100.0" text="Read" />
+               </children>
+            </HBox>
+            <Label text="CSV User">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <HBox>
+               <children>
+                  <Button fx:id="csvSaveUserButton" mnemonicParsing="false" onAction="#csvSaveUser" prefWidth="100.0" text="Save" />
+                  <Button fx:id="csvReadUserButton" mnemonicParsing="false" onAction="#csvReadUser" prefWidth="100.0" text="Read" />
+               </children>
+            </HBox>
+            <Label text="CSV Magazines">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <HBox>
+               <children>
+                  <Button fx:id="csvSaveMagazineButton" mnemonicParsing="false" onAction="#csvSaveMagazine" prefWidth="100.0" text="Save" />
+                  <Button fx:id="csvReadMagazineButton" mnemonicParsing="false" onAction="#csvReadMagazine" prefWidth="100.0" text="Read" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <VBox alignment="CENTER" spacing="5.0" BorderPane.alignment="CENTER">
+         <children>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="198.0" text="Products in centers">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <TableView fx:id="productCentTable" onMouseClicked="#chosenProductList" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="productNameColumn" prefWidth="42.0" text="Name" />
+                <TableColumn fx:id="productAmountColumn" prefWidth="53.0" text="Amount" />
+                  <TableColumn fx:id="productPriceColumn" prefWidth="49.0" text="Price" />
+                  <TableColumn fx:id="productCenterNameColumn" prefWidth="55.0" text="Center name" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+            <Label alignment="CENTER" prefHeight="17.0" prefWidth="200.0" text="Purchased products">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <TableView fx:id="purchasedProductsTable" prefHeight="200.0" prefWidth="200.0">
+              <columns>
+                <TableColumn fx:id="productNameColumnn" prefWidth="33.0" text="Name" />
+                <TableColumn fx:id="productAmountColumnn" prefWidth="53.0" text="Amount" />
+                  <TableColumn fx:id="productPriceColumnn" prefWidth="46.0" text="Price" />
+                  <TableColumn fx:id="productCenterNameColumnn" prefWidth="75.0" text="Center name" />
+              </columns>
+               <columnResizePolicy>
+                  <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+               </columnResizePolicy>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>
